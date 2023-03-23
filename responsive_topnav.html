@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+
+<!-- Font Awesome CDN -->
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.3.0/css/all.min.css">
+
+<title>Responsive Top Navigation Bar</title>
+<style>
+body {
+  margin: 0;
+  font-family: Verdana, Tahoma, sans-serif;
+} 
+
+.topnav {
+  overflow: hidden;
+  background-color: #666;
+}
+
+.topnav a {
+  display: block;
+  float: left;
+  color: #fff;
+  font-size: 1.1em;
+  text-decoration: none;
+  text-align: center;
+  padding: 14px 16px;
+}
+
+.topnav a.i-topnav {
+  display: none;
+}
+
+.topnav a:hover {
+  background-color: #04aa6d;
+}
+
+@media screen and (max-width: 600px) {
+  .topnav a {
+    display: none;
+  }
+
+  .topnav a.i-topnav {
+    display: block;
+    float: right;
+  } 
+}
+
+@media screen and (max-width: 600px) {
+  .topnav.responsive {
+    position: relative;
+  }
+
+  .topnav.responsive a {
+    display: block;
+    float: none;
+    text-align: left;
+  }
+
+  .topnav.responsive a.i-topnav {
+    position: absolute;
+    top: 0;
+    right: 0;
+  }
+}              
+</style>
+</head>
+<body>
+  <nav class="topnav" id="id-topnav">          
+    <a href="#link">Link</a> 
+    <a href="#link">Link</a> 
+    <a href="#link">Link</a> 
+    <a href="#link">Link</a>
+    <a href="javascript: void(0);" class="i-topnav" onclick="displayMenu()">
+      <i class="fa-solid fa-bars"></i>
+    </a>
+  </nav>
+  
+  <!-- JavaScript -->
+  <script>
+    function displayMenu() {
+          var element = document.getElementById("id-topnav");
+          if (element.className === "topnav") {
+                element.className = "topnav responsive";
+              } else {
+                    element.className = "topnav";
+                  }
+        }
+  </script>
+</body>
+</html>
