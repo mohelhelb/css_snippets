@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+
+<!-- Font Awesome CDN -->
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.3.0/css/all.min.css">
+
+<title>Responsive Navigation Bar With Icons</title>
+<style>
+body {
+  margin: 0;
+  font-family: Ubuntu, Verdana, sans-serif;
+} 
+
+.topnav {
+  background-color: #04aa6d;
+  overflow: hidden;
+}
+
+.topnav a {
+  display: block;
+  float: left;
+  color: #f1f1f1;
+  font-size: 1.1em;
+  text-decoration: none;
+  text-align: center;
+  padding: 14px 16px;
+}
+
+.topnav a:hover {
+  background-color: #666;
+}
+
+.topnav .fa-mr-6 {
+  margin-right: 6px;
+}
+
+@media screen and (max-width: 600px) {
+  .topnav a {
+    float: none;
+    text-align: left;
+  }
+}
+</style>
+</head>
+<body>
+  <nav class="topnav">                         
+    <a href="#home"><i class="fa-solid fa-house-chimney fa-mr-6"></i>Home</a> 
+    <a href="#search"><i class="fa-solid fa-magnifying-glass fa-mr-6"></i>Search</a> 
+    <a href="#contact"><i class="fa-solid fa-envelope fa-mr-6"></i>Contact</a> 
+    <a href="#login"><i class="fa-solid fa-user fa-mr-6"></i>Login</a>
+  </nav> 
+</body>
+</html>
