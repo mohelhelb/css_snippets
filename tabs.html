@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Tabs</title>
+<style>
+body {
+  font-family: Ubuntu, Verdana, sans-serif;
+}
+
+.tab {
+  overflow: hidden;
+  border: 1px solid #ccc;
+  background-color: #f1f1f1;
+} 
+
+.tab button {
+  float: left;
+  border: none;
+  outline: none;
+  padding: 14px 16px;
+  background-color: inherit;
+  color: #000;
+  font-size: 1.1em;
+  cursor: pointer;
+  transition: background-color 0.4s;
+}
+
+.tab button:hover {
+  background-color: #ddd;
+}
+
+.tab button.active {
+  background-color: #bbb;
+}
+
+.tab-page {
+  display: none;
+  border: 1px solid #ccc;
+  border-top: none;
+  padding: 6px 12px;
+}
+</style>
+</head>
+<body>
+ <div class="tab">
+   <button class="tab-button" onclick="openTab(event, 'Germany')">Germany</button>
+   <button class="tab-button" onclick="openTab(event, 'Spain')">Spain</button>
+   <button class="tab-button" onclick="openTab(event, 'Portugal')">Portugal</button>
+ </div>  
+ <article class="tab-page" id="Germany">
+   <h3>Germany</h3>
+   <p>Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam</p>
+ </article> 
+ <article class="tab-page" id="Spain">
+   <h3>Spain</h3>
+   <p>Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam</p>
+ </article>  
+ <article class="tab-page" id="Portugal">
+   <h3>Portugal</h3>
+   <p>Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam</p>
+ </article>
+
+ <!-- JavaScript -->
+ <script>
+   function openTab(evt, countryName) {
+        var i, tabButtons, tabPages;
+        tabButtons = document.getElementsByClassName("tab-button");
+        for (i = 0; i < tabButtons.length; i++) {
+             tabButtons[i].className = tabButtons[i].className.replace(" active", "");
+           }
+        evt.currentTarget.className += " active";
+        tabPages = document.getElementsByClassName("tab-page");
+        for (i = 0; i < tabPages.length; i++) {
+             tabPages[i].style.display = "none";
+           }
+        document.getElementById(countryName).style.display = "block"; 
+      }
+ </script>
+</body>
+</html>
