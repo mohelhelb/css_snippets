@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Tab Headers</title>
+<style>
+body {
+  font-family: Lato, Ubuntu, Verdana, sans-serif;
+  font-size: 1.1em;
+  color: #f1f1f1;
+}
+
+.tab-button {
+  float: left;
+  width: 25%;
+  outline: none;
+  border: none;
+  padding: 14px 16px;
+  background-color: #666;
+  color: inherit;
+  font-family: inherit;
+  font-size: inherit;
+  cursor: pointer;
+} 
+
+.tab-button:hover {
+  background-color: #888;
+}
+
+.tab-page {
+  display: none;
+  padding: 50px;
+  text-align: center;
+}
+
+#germany {
+  background-color: #f00;
+}
+
+#spain {
+  background-color: #00f;
+}
+
+#sweden {
+  background-color: #008000;
+}
+
+#switzerland {
+  background-color: #ffa500;
+}
+</style>
+</head>
+<body> 
+ <div class="tab-page" id="germany">
+   <h3>Germany</h3>
+   <p>Lorem ipsum dolor sit amet consetetur</p>
+ </div>  
+ <div class="tab-page" id="spain">
+   <h3>Spain</h3>
+   <p>Lorem ipsum dolor sit amet consetetur</p>
+ </div>  
+ <div class="tab-page" id="sweden">
+   <h3>Sweden</h3>
+   <p>Lorem ipsum dolor sit amet consetetur</p>
+ </div>  
+ <div class="tab-page" id="switzerland">
+   <h3>Switzerland</h3>
+   <p>Lorem ipsum dolor sit amet consetetur</p>
+ </div> 
+ <button class="tab-button" onclick="openTab('germany', this)" id="tab-default">Germany</button>
+ <button class="tab-button" onclick="openTab('spain', this)">Spain</button>
+ <button class="tab-button" onclick="openTab('sweden', this)">Sweden</button>
+ <button class="tab-button" onclick="openTab('switzerland', this)">Switzerland</button>
+
+ <!-- JavaScript -->
+ <script>
+   function openTab(countryName, elemnt) {
+        var i, tabPages, tabButtons;
+        // Display only the selected tab page.
+        tabPages = document.getElementsByClassName("tab-page");
+        for (i = 0; i < tabPages.length; i++) {
+             tabPages[i].style.display = null;
+           }
+        document.getElementById(countryName).style.display = "block";
+        // Set the background of the selected tab button and the corresponding tab page to the same color.
+        tabButtons = document.getElementsByClassName("tab-button");
+        for (i = 0; i < tabButtons.length; i++) {
+             tabButtons[i].style.backgroundColor = null;
+           }
+        elemnt.style.backgroundColor = window.getComputedStyle(document.getElementById(countryName)).backgroundColor;
+      }
+   // Get the first tab button (id = "tab-default") and click on it.
+   document.getElementById("tab-default").click();
+ </script>
+</body>
+</html>
