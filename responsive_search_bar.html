@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+
+<!-- Font Awesome CDN -->
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">  
+
+<title>Search Bar</title>
+<style>
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  font-family: Ubuntu, Arial, sans-serif;
+  font-size: 18px;
+}
+
+.topnav {
+  overflow: hidden;
+  position: relative;
+  background-color: #04aa6d;
+  color: #f1f1f1;
+} 
+
+.topnav a {
+  display: block;
+  float: left;
+  padding: 14px 16px;
+  color: inherit;
+  text-decoration: none;
+  text-align: center;
+}
+
+.topnav a:hover {
+  background-color: #666;
+}
+
+.topnav .search-container {
+  position: absolute;
+  top: 50%;
+  right: 0;
+  transform: translateY(-50%);
+  margin-right: 10px;
+}
+
+.topnav input[type="text"] {
+  float: left;
+  outline: none;
+  border: 0;
+  padding: 6px;
+  font-family: inherit;
+  font-size: inherit;
+}
+
+.topnav button {
+  float: left;
+  margin: 0;
+  outline: none;
+  border: none;
+  padding: 6px 7.5px;
+  background-color: #f1f1f1;
+  font-size: inherit;
+}
+
+.topnav .search-container button:hover {
+  background-color: #666;
+  color: inherit;
+}
+
+@media screen and (max-width: 600px) {
+  .topnav .search-container {
+    position: relative;
+    transform: none;
+    margin-right: 0;
+  }
+  .topnav a, .topnav input[type="text"], .topnav button {
+    display: block;
+    float: none;
+    width: 100%;
+    padding: 14px;
+    text-align: left;
+  }
+
+  .topnav input[type="text"] {
+    outline: 2px solid #ccc;
+    outline-offset: -2px;
+  }
+
+  .topnav button {
+    background-color: inherit;
+    color: inherit;
+  }
+}
+</style>
+</head>
+<body>
+  <nav class="topnav">
+    <a href="#">Home</a>
+    <a href="#">About</a>
+    <a href="#">Contact</a>
+    <form class="search-container">
+      <input type="text" placeholder="Search...">
+      <button><i class="fa-solid fa-magnifying-glass"></i></button>
+    </form>
+  </nav> 
+</body>
+<!-- Note: Search Bar -->
+</html>
