@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Side Navigation Opacity</title>
+<style>
+:root {
+  font-size: 18px;
+}
+
+body {
+  margin: 0;
+  font-family: Ubuntu, Verdana, sans-serif;
+  transition: background-color 0.5s;
+}
+
+.sidenav {
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: 1;
+  width: 0;
+  height: 100vh;
+  overflow: hidden;
+  padding-top: 60px;
+  background-color: #111;
+  transition: width 0.5s;
+} 
+ 
+.sidenav .close-btn {
+  position: absolute;
+  top: 0;
+  right: 25px;
+  font-size: 1.6rem;
+} 
+
+.sidenav a {
+  display: block;
+  padding: 8px 8px 8px 32px;
+  color: #818181;
+  text-decoration: none;
+  font-size: 1.3rem;
+  transition: color 0.3s;
+}
+
+.sidenav a:hover {
+  color: #fff;
+}
+
+#main-id {
+  padding: 20px;
+  transition: margin-left 0.5s;
+}
+
+.open-btn {
+  font-size: 1.6rem;
+  cursor: pointer;
+}
+</style>
+</head>
+<body>
+  <nav class="sidenav" id="sidenav-id">           
+    <a href="javascript: void(0);" class="close-btn" onclick="closeSideNav()">&times;</a>
+    <a href="#">About</a> 
+    <a href="#">Services</a> 
+    <a href="#">Clients</a> 
+    <a href="#">Contact</a>
+  </nav>
+  <main id="main-id">
+    <span class="open-btn" onclick="openSideNav()">&#9776;</span>
+  </main>
+
+  <!-- JavaScript -->
+  <script>
+    function openSideNav() {
+          document.getElementById("sidenav-id").style.width = "250px";
+          document.getElementById("main-id").style.marginLeft = "250px";
+          document.body.style.backgroundColor = "rgba(0, 0, 0, 0.4)";
+        }
+
+    function closeSideNav() {
+          document.getElementById("sidenav-id").style.width = "0";
+          document.getElementById("main-id").style.marginLeft = "0";
+          document.body.style.backgroundColor = "rgba(0, 0, 0, 0)";
+        }
+  </script>
+</body>
+<!-- Note: Side Navigation -->
+</html>
