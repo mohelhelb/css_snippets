@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Modal Boxes</title>
+<!-- Note: More. Modal Boxes -->
+<style>
+:root {
+  font-size: 18px;
+}
+
+body {
+  font-family: Ubuntu, Verdana, sans-serif;
+}
+
+.modal {
+  display: none;
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: 1;
+  width: 100vw;
+  height: 100vh;
+  background-color: rgba(0, 0, 0, 0.4);
+} 
+
+.modal .modal-content {
+  width: 80%;
+  transform: translateY(10vh);
+  margin: auto;
+  border: 1px solid #888;
+  padding: 20px;
+  background-color: #fefefe;
+}
+
+.modal-content .close-btn {
+  position: absolute;
+  top: 0;
+  right: 0;
+  z-index: 1;
+  padding: 0 8px;
+  color: #aaa;
+  font-size: 1.6rem;
+  cursor: pointer;
+}    
+
+.modal-content .close-btn:hover {
+  color: #000;
+}    
+</style>
+</head>
+<body>
+  <button id="open-btn-id">Open Modal</button>
+  <div class="modal" id="modal-id">
+    <div class="modal-content">
+      <span class="close-btn">&times;</span>
+      <p>Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam</p>
+    </div>
+  </div>
+
+  <!-- JavaScript -->
+  <script>
+    var openBtn = document.getElementById("open-btn-id");
+    var closeBtn = document.getElementsByClassName("close-btn")[0];
+    var modal = document.getElementById("modal-id");
+
+    openBtn.onclick = function () {
+          modal.style.display = "block";
+        }
+
+    closeBtn.onclick = function () {
+          modal.style.display = "none";
+        }
+
+    window.onclick = function (event) {
+          if (event.target == modal) {
+                modal.style.display = "none";
+              }
+        }
+  </script>
+</body>
+</html>
