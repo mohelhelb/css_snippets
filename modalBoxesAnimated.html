@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Modal Boxes</title>
+<!-- Note: More. Modal Boxes -->
+<style>
+:root {
+  font-size: 18px;
+}
+
+body {
+  font-family: Ubuntu, Verdana, sans-serif;
+}
+
+.modal {
+  display: none;
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: 0;
+  width: 100vw;
+  height: 100vh;
+  background-color: rgba(0, 0, 0, 0.4);
+}  
+
+.modal .modal-content {
+  position: relative;
+  width: 80%;
+  margin: auto;
+  transform: translateY(10vh);
+  background-color: #fefefe;
+  animation-name: modal-animation;
+  animation-duration: 0.4s;
+} 
+
+@keyframes modal-animation {
+  from {top: -20vh; opacity: 0;}
+  to {top: 0; opacity: 1;}
+} 
+
+.modal-content .modal-header {
+  padding: 2px 33px;
+  background-color: #04aa60;
+  color: #fff;
+  text-align: center;
+}
+
+.modal-header .modal-close {
+  position: absolute;
+  top: 0;
+  right: 0;
+  padding: 0 8px;
+  font-size: 1.6rem;
+  font-weight: bold;
+  cursor: pointer;
+}
+
+.modal-header .modal-close:hover {
+  color: #000;
+}
+
+.modal-content .modal-body {
+  padding: 2px 16px;
+}
+
+.modal-content .modal-footer {
+  padding: 2px 33px;
+  background-color: #04aa60;
+  color: #fff;
+  text-align: center; 
+}
+</style>
+</head>
+<body>
+  <button id="modal-open-id">Open Modal</button>
+  <div class="modal" id="modal-id">
+    <div class="modal-content">
+      <div class="modal-header">
+        <span class="modal-close" id="modal-close-id">&times;</span>
+        <h2>Modal Header</h2>
+      </div>
+      <div class="modal-body">
+        <p>Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam</p>
+        <p>Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam</p>
+      </div>
+      <div class="modal-footer">
+        <h3>Modal Footer</h3>
+      </div>
+    </div>
+  </div>  
+
+  <!-- JavaScript -->
+  <script>
+    var openModal = document.getElementById("modal-open-id");
+    var closeModal = document.getElementById("modal-close-id");
+    var modal = document.getElementById("modal-id");
+
+    openModal.onclick = function () {
+          modal.style.display = "block";
+        }
+
+    closeModal.onclick = function () {
+          modal.style.display = "none";
+        }
+    
+    // Close the modal when clicking outside of it.
+    window.onclick = function (event) {
+          if (event.target == modal) {
+                modal.style.display = "none";
+              }
+        }
+  </script>
+</body>
+</html>
