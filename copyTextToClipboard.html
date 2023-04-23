@@ -1,0 +1,193 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Copy Text To Clipboard</title>
+<!-- Note: Copy Text To Clipboard -->
+<style>
+:root {
+  font-size: 18px;
+  color: #555;
+  background-color: rgba(0, 0, 0, 0.4);
+}  
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  font-family: Ubuntu, Verdana, sans-serif;
+}
+
+a {
+  color: #007bff;
+  text-decoration: none;
+}
+
+button {
+  border: none;
+  padding: 17px 16px;
+  background-color: #007dff;
+  color: #fff;
+  font-size: inherit;
+  font-family: inherit;
+  cursor: pointer;
+  opacity: 1;
+  transition: opacity 0.3s;
+}
+
+button:hover {
+  opacity: 0.8;
+}
+
+input {
+  border: none;
+  padding: 17px 16px;
+  background-color: #f1f1f1;
+  font-size: inherit;
+  font-family: inherit;
+}
+
+input:focus {
+  outline: none;
+  border: none;
+  background-color: #ddd;
+}
+
+.clearfix {
+  display: table;
+  content: "";
+  clear: both;
+}
+
+.container {
+  width: 50%;
+  margin: 10% auto 0 auto; 
+  padding: 16px;
+  background-color: #fff;
+  text-align: center;
+}  
+
+.card {
+  width: 80%;
+  margin: 25px auto;
+  border-radius: 4px;
+  padding: 16px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.20), 0 6px 32px rgba(0, 0, 0, 0.19);
+} 
+
+.promo-code {
+  margin: 18px auto;
+}
+
+.promo-code span:first-child {
+  float: left;
+  display: block;
+  border: 1px solid #ccc;
+  border-right: none;
+  border-radius: 4px 0 0 4px;
+  padding: 14px 16px;
+  color: #333;
+  font-size: 1.2rem;
+  font-weight: bold;
+}
+
+.tooltip {
+  float: left;
+  position: relative;
+}
+
+.tooltip button {
+  border-radius: 0 4px 4px 0;
+}
+
+.tooltip .tooltip-text { 
+  visibility: hidden; 
+  display: inline-block;
+  position: absolute;
+  top: 50%;
+  left: 115%;
+  z-index: 1;
+  transform: translateY(-50%);
+  width: 140px;
+  border-radius: 4px;
+  padding: 10px;
+  background-color: #333;
+  color: #fff;
+  font-size: 0.8rem;
+}
+
+.tooltip .tooltip-text::after {
+  position: absolute;
+  top: 50%;
+  right: 100%;
+  z-index: 1;
+  transform: translateY(-50%);
+  content: "";
+  border-width: 8px;
+  border-style: solid;
+  border-color: transparent #333 transparent transparent;
+}
+
+.tooltip:hover .tooltip-text {
+  visibility: visible;  
+}
+
+.subscription {
+  margin: 18px auto;
+}
+
+.subscription input {
+  float: left;
+  border-radius: 4px 0 0 4px; 
+}
+
+.subscription button {
+  float: left;
+  border-radius: 0 4px 4px 0;
+}
+</style>
+</head>
+<body>
+  <div class="container">
+    <div class="card"> 
+      <h2>$25 Off With GForce Promo Code</h2>
+      <p>Copy and paste this code at <a href="#">GForce</a></p>
+      <div class="promo-code clearfix">
+        <span id="span-id01">GF7k9l</span>
+        <div class="tooltip">
+          <button type="button" onclick="copyTextToClipboard()" onmouseout="resetCopyTextToClipboard()">Copy</button>
+          <span class="tooltip-text" id="span-id02">Copy To Clipboard</span>
+        </div>
+      </div> 
+    </div>   
+    <div class="card">
+      <p>Subscribe to our newsletter and never miss a deal</p>
+      <form action="" method="POST"class="subscription clearfix" id="form-id01">
+        <input type="email" name="email" placeholder="Email Address" required>
+        <button type="submit" form="form-id01">Subscribe</button>
+      </form>
+      <small>
+        <a href="#">Privacy Policy</a>
+      </small>
+    </div>
+  </div>
+
+  <!-- JavaScript -->
+  <script>
+    function copyTextToClipboard() {
+          var promoCode = document.getElementById("span-id01").innerHTML;
+          navigator.clipboard.writeText(promoCode);
+
+          var tooltipText = document.getElementById("span-id02");
+          tooltipText.innerHTML = "Copied";
+        }  
+
+    function resetCopyTextToClipboard() {
+          var tooltipText = document.getElementById("span-id02");
+          tooltipText.innerHTML = "Copy To Clipboard";
+        }
+  </script>
+</body>
+</html>
