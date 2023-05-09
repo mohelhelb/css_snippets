@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Notification Button</title>
+<!-- Note: Notification Button -->
+<style>
+:root {
+  font-size: 18px;
+}
+
+body {
+  font-family: Ubuntu, Verdana, sans-serif;
+}
+
+.notification {
+  position: relative;
+  display: inline-block;
+  margin-top: 15px;
+  border-radius: 2px;
+  padding: 15px 26px;
+  background-color: #09f;
+  color: #fff;
+  text-decoration: none;
+  opacity: 1;
+  transform: 0.4s;
+}  
+
+.notification:hover {
+  opacity: 0.8;
+}
+
+.notification .badge {
+  position: absolute;
+  top: 0;
+  right: 0;
+  border-radius: 50%;
+  padding: 2px 7px;
+  transform: translate(50%, -50%);
+  background-color: #f00;
+}
+</style>
+</head>
+<body>
+  <a href="#" class="notification">
+    <span>Inbox</span>
+    <span class="badge">3</span>
+  </a>  
+</body>
+</html>
