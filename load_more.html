@@ -36,8 +36,8 @@
   <button class="load-more" type="button">Load More</button>
   <script>
     const loadMoreButton = document.querySelector(".load-more");
-    function displayArticleFromTo(articles, start, end) {
-          for (let j = start; j < end; j++) {
+    function displayArticlesFromTo(articles, start, end) {
+          for (let j = start; j <= end; j++) {
                 articles[j].style.display = "block";
               }
         }
@@ -53,32 +53,32 @@
                 return false;
               } else if (division > 0 && division <= 1) {
                     start = 0;
-                    end = totalNumArticles;
-                    displayArticleFromTo(articles, start, end);
+                    end = totalNumArticles - 1;
+                    displayArticlesFromTo(articles, start, end);
                     return false;
                   }
           start = 0;
-          end = perPageNumArticles;
-          displayArticleFromTo(articles, start, end);
+          end = perPageNumArticles - 1;
+          displayArticlesFromTo(articles, start, end);
           loadMoreButton.style.display = "block";
           loadMoreButton.addEventListener("click", function() {
                 i++;
                 if ((i === floorDivision + 1) && remainder) {
                       start = floorDivision * perPageNumArticles;
-                      end = totalNumArticles;
-                      displayArticleFromTo(articles, start, end);
+                      end = totalNumArticles - 1;
+                      displayArticlesFromTo(articles, start, end);
                       this.style.display = "none";
                       return false;
                     } else if ((i === floorDivision) && !remainder) { 
-                          start = (i - 1) * perPageNumArticles;
-                          end = i * perPageNumArticles;
-                          displayArticleFromTo(articles, start, end); 
+                          start = (floorDivision - 1) * perPageNumArticles;
+                          end = (floorDivision * perPageNumArticles) - 1;
+                          displayArticlesFromTo(articles, start, end); 
                           this.style.display = "none";
                           return false;
                         }
                 start = (i - 1) * perPageNumArticles;
-                end = i * perPageNumArticles;
-                displayArticleFromTo(articles, start, end);
+                end = (i * perPageNumArticles) - 1;
+                displayArticlesFromTo(articles, start, end);
               });
         }
     const articles = document.querySelectorAll(".box");
