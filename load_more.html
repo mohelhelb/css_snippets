@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Load More</title>
+</head>
+<style>
+.box {
+  display: none;
+  width: 50%;
+  height: 50px;
+  margin: 20px auto;
+  background-color: #666;
+  color: #fff;
+  text-align: center;
+  font-weight: bold;
+}
+
+.load-more {
+  display: none;
+  margin: auto;
+}
+</style>
+<body>                
+  <div class="box">Article 0</div> 
+  <div class="box">Article 1</div> 
+  <div class="box">Article 2</div> 
+  <div class="box">Article 3</div> 
+  <div class="box">Article 4</div> 
+  <div class="box">Article 5</div> 
+  <div class="box">Article 6</div> 
+  <div class="box">Article 7</div> 
+  <div class="box">Article 8</div> 
+  <div class="box">Article 9</div>
+  <button class="load-more" type="button">Load More</button>
+  <script>
+    const loadMoreButton = document.querySelector(".load-more");
+    function displayArticleFromTo(articles, start, end) {
+          for (let j = start; j < end; j++) {
+                articles[j].style.display = "block";
+              }
+        }
+    function loadMoreArticles(articles, perPageNumArticles) {
+          let totalNumArticles = articles.length;
+          let division = totalNumArticles / perPageNumArticles;
+          let floorDivision = Math.floor(totalNumArticles / perPageNumArticles);
+          let remainder = totalNumArticles % perPageNumArticles; 
+          let start = 0;
+          let end = 0; 
+          let i = 1;
+          if (!division) {
+                return false;
+              } else if (division > 0 && division <= 1) {
+                    start = 0;
+                    end = totalNumArticles;
+                    displayArticleFromTo(articles, start, end);
+                    return false;
+                  }
+          start = 0;
+          end = perPageNumArticles;
+          displayArticleFromTo(articles, start, end);
+          loadMoreButton.style.display = "block";
+          loadMoreButton.addEventListener("click", function() {
+                i++;
+                if ((i === floorDivision + 1) && remainder) {
+                      start = floorDivision * perPageNumArticles;
+                      end = totalNumArticles;
+                      displayArticleFromTo(articles, start, end);
+                      this.style.display = "none";
+                      return false;
+                    } else if ((i === floorDivision) && !remainder) { 
+                          start = (i - 1) * perPageNumArticles;
+                          end = i * perPageNumArticles;
+                          displayArticleFromTo(articles, start, end); 
+                          this.style.display = "none";
+                          return false;
+                        }
+                start = (i - 1) * perPageNumArticles;
+                end = i * perPageNumArticles;
+                displayArticleFromTo(articles, start, end);
+              });
+        }
+    const articles = document.querySelectorAll(".box");
+    loadMoreArticles(articles, 3);
+  </script>
+</body>
+</html>
